@@ -4,6 +4,8 @@ from car import Car
 from engine.capulet_engine import CapuletEngine
 from engine.sternman_engine import SternmanEngine
 from engine.willoughby_engine import WilloughbyEngine
+from tire.carrigan_tire import CarriganTire
+from tire.octoprime_tire import OctoprimeTire
 
 
 class CarFactory:
@@ -40,4 +42,16 @@ class CarFactory:
         engine = CapuletEngine(current_mileage, last_service_mileage)
         battery = NubbinBattery(current_date, last_service_date)
         car = Car(engine, battery)
+        return car
+
+    @staticmethod
+    def create_octoprime(wear):
+        tire = OctoprimeTire(wear)
+        car = Car(tire)
+        return car
+
+    @staticmethod
+    def create_carrigan(wear):
+        tire = CarriganTire(wear)
+        car = Car(tire)
         return car
